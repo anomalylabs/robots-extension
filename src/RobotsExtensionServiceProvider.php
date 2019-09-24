@@ -19,7 +19,6 @@ class RobotsExtensionServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $routes = [
-        'robots.txt' => 'Anomaly\RobotsExtension\Http\Controller\RobotsController@view'
+        'robots.txt' => 'Anomaly\RobotsExtension\Http\Controller\RobotsController@view',
     ];
-
 }

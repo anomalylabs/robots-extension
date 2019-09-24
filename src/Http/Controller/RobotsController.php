@@ -8,10 +8,9 @@ use Anomaly\Streams\Platform\Support\Template;
 /**
  * Class RobotsController
  *
- * @link          http://pyrocms.com/
- * @author        PyroCMS, Inc. <support@pyrocms.com>
- * @author        Ryan Thompson <ryan@pyrocms.com>
- * @package       Anomaly\RobotsExtension\Http\Controller
+ * @link   http://pyrocms.com/
+ * @author PyroCMS, Inc. <support@pyrocms.com>
+ * @author Ryan Thompson <ryan@pyrocms.com>
  */
 class RobotsController extends PublicController
 {
@@ -20,8 +19,8 @@ class RobotsController extends PublicController
      * Return the robots.txt file.
      *
      * @param SettingRepositoryInterface $settings
-     * @param Template                   $template
-     * @return \Illuminate\Http\Response|mixed
+     * @param Template $template
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function view(SettingRepositoryInterface $settings, Template $template)
     {
@@ -31,9 +30,9 @@ class RobotsController extends PublicController
         }
 
         if (!$content) {
-            $content = $this->view->make('anomaly.extension.robots::robots')->render();
+            $content = view('anomaly.extension.robots::robots')->render();
         }
 
-        return $this->response->make($content)->header('Content-Type', 'text/plain');
+        return response($content)->header('Content-Type', 'text/plain');
     }
 }

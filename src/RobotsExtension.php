@@ -20,5 +20,4 @@ class RobotsExtension extends Extension
      * @var null|string
      */
     protected $provides = null;
-
 }
